@@ -2,7 +2,10 @@
 
 <template>
   <div class="footer">
-    <p>Questions? Call 1-857-039-732 ( Not a real number)</p>
+    <div class="number">
+      <p>Questions? Call 1-857-039-732 ( Not a real number)</p>
+    </div>
+
     <div class="links">
       <a href="">FAQ</a>
       <a href="">Help Center</a>
@@ -26,8 +29,13 @@
 </template>
 
 <style scoped>
+.number {
+  text-align: center;
+}
 .links {
   display: grid;
+  position: relative;
+  left: 60px;
   grid-template-columns: 200px 200px 200px 200px;
   grid-template-rows: 30px 30px 30px 30px;
   font-size: 12px;

@@ -24,9 +24,20 @@ const movie = (
         <button @click="$emit('toggleModal')">X</button>
         <div v-if="movie">
           <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" />
-          <h1>{{ movie.title }}</h1>
-          <h2>{{ movie.release_date }}</h2>
-          <h3 @click="store.addToCart(movie.poster_path, movie.title)">Buy</h3>
+          <div class="tit">
+            <h1>{{ movie.title }}</h1>
+          </div>
+
+          <div class="info">
+            <h2>{{ movie.release_date }}</h2>
+            <h2>{{ movie.overview }}</h2>
+            <h3
+              class="but"
+              @click="store.addToCart(movie.poster_path, movie.title)"
+            >
+              Buy
+            </h3>
+          </div>
         </div>
       </div>
     </div>
@@ -34,6 +45,19 @@ const movie = (
 </template>
 
 <style scoped>
+.tit {
+  position: relative;
+  left: 50%;
+}
+.info {
+  width: 60%;
+  position: relative;
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  left: 250px;
+  bottom: 350px;
+}
 .modal-outer-container {
   position: fixed;
   top: 0;
@@ -47,7 +71,8 @@ const movie = (
 }
 
 .modal-outer-container .modal-inner-container {
-  background-color: #3b444b;
+  background-color: #205176;
+  border-radius: 20px;
   width: clamp(280px, 100%, 900px);
   height: 50vh;
   position: relative;
